@@ -25,9 +25,17 @@
         placement="top-start"
         width="200"
         trigger="hover">
-        <span style="color: #b0b0b0">获取下载链接</span>
-        <el-button slot="reference" :loading="loading" @click="fetch()" style="margin: 2px;">分析</el-button>
+        <span style="color: #b0b0b0">清空</span>
+        <el-button slot="reference" :loading="loading" @click="clear()" style="margin: 2px;">清空</el-button>
       </el-popover>
+
+<!--      <el-popover-->
+<!--        placement="top-start"-->
+<!--        width="200"-->
+<!--        trigger="hover">-->
+<!--        <span style="color: #b0b0b0">获取下载链接</span>-->
+<!--        <el-button slot="reference" :loading="loading" @click="fetch()" style="margin: 2px;">分析</el-button>-->
+<!--      </el-popover>-->
     </el-row>
 
     <div v-if="downloadAddr !== ''" style="margin-top: 10px; padding-left: 20%; padding-right: 20%;">
@@ -83,6 +91,9 @@
     },
     selectType(value) {
       this.selectedType = value
+    },
+    clear(){
+      this.inputUrl = ""
     },
     fetch() {
       let url = this.inputUrl.trim();
